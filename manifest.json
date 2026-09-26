@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "广告拦截器",
+  "version": "1.7.0",
+  "description": "广告学习拦截器 v1.7：录制操作自动关闭/删除广告（支持同 class 累计后批量删除并可回放）、dHash 图像角标识别 + 按域名学习角标特征、订阅 Adblock Plus 规则（内置搜索 + FilterLists 全网搜索）、元素隐藏、通用/站点规则、备份恢复、规则去重与智能选取、IndexedDB 存储。",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "notifications",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "128": "icon.png"
+  }
+}
